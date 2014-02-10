@@ -104,6 +104,12 @@ public class Board {
         return foundFields;
     }
 
+    /**
+     * 
+     * @param x
+     * @param y
+     * @return 
+     */
     public boolean toggleFlag(int x, int y) {
         // Das Feld markieren
         boolean flagged = fields[x][y].isFlagged();
