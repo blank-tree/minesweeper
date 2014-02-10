@@ -5,7 +5,7 @@ import java.util.Random;
 
 /**
  * @author fernandoobieta
- * @version 1.1
+ * @version 1.0
  */
 public class Board {
 
