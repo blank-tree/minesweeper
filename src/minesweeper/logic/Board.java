@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
-* @author fernandoobieta
-* @version 1.0
-*/
-
+ * @author fernandoobieta
+ * @version 1.0
+ */
 public class Board {
 
     // Data
@@ -37,23 +36,27 @@ public class Board {
         }
     }
 
+    /**
+     * Methode welche bloss vom Konstruktor verwendet wird um zu entscheiden mit
+     * Bomben zu fuellen
+     *
+     * @param difficulty
+     * @return Entscheidung ob es sich um eine Bombe handelt oder nicht
+     */
     private boolean decideFieldIsBomb(double difficulty) {
-        // Methode welche bloss vom Konstruktor verwendet wird um zu entscheiden
-        // mit Bomben zu fuellen
         return random.nextDouble() < difficulty;
     }
 
     /**
+     * Methode welche ein einzelnes Feld aufdeckt. Dabei wird mit Untermethoden
+     * die Anzahl Bomben um das Feld bestummen und dem spezifischen Feld die
+     * Anzahl in das enstsprechende Datenfeld geschrieben.
      *
-     * @param x
-     * @param y
-     * @return
+     * @param x-Koordinate des angewaehlten Feldes
+     * @param y-Koordinate des angewaehlten Feldes
+     * @return Falls eine Bombe getroffen wurde, liefert die Methode true.
      */
     public boolean dig(int x, int y) {
-        // Methode welche ein einzelnes Feld aufdeckt. Dabei wird mit
-        // Untermethoden die Anzahl Bomben um das Feld bestummen und dem
-        // spezifischen Feld die Anzahl in das enstsprechende Datenfeld
-        // geschrieben.
         fields[x][y].setRevealed(true);
         ArrayList<Field> neighborsOf = getNeighborsOf(x, y);
         int neigboringBombs = getBombsIn(neighborsOf);
@@ -61,9 +64,13 @@ public class Board {
         return fields[x][y].isBomb();
     }
 
+    /**
+     * Wird von der Methode "Dig" ausgefuehrt um die Anzahl Bomben aus
+     * der uebergebenen ArrayList zusammenzuzaehlen.
+     * @param neigbors
+     * @return
+     */
     private int getBombsIn(ArrayList<Field> neigbors) {
-        // Wird von der Methode "Dig" ausgefuehrt um die Anzahl Bomben aus
-        // der uebergebenen ArrayList zusammenzuzaehlen.
         int bombs = 0;
         for (Field field : neigbors) {
             if (field.isBomb()) {
@@ -73,11 +80,16 @@ public class Board {
         return bombs;
     }
 
+    /**
+     * Wird von der Methode "Dig" ausgefuehrt um eine ArrayList
+     * mit allen umliegenden Feldern zu erstellen. Dabei ueberprueft 
+     * sie zuerst aber ob ueberhaupt alle umliegenden Felder existieren
+     * (z.B. ob wir in einer Ecke sind oder an einem Rand).
+     * @param x
+     * @param y
+     * @return 
+     */
     private ArrayList<Field> getNeighborsOf(int x, int y) {
-        // Wird von der Methode "Dig" ausgefuehrt um eine ArrayList
-        // mit allen umliegenden Feldern zu erstellen. Dabei ueberprueft 
-        // sie zuerst aber ob ueberhaupt alle umliegenden Felder existieren
-        // (z.B. ob wir in einer Ecke sind oder an einem Rand).
         ArrayList<Field> foundFields = new ArrayList<Field>();
         for (int xOff = -1; xOff > 1; xOff++) {
             for (int yOff = -1; yOff > 1; yOff++) {
