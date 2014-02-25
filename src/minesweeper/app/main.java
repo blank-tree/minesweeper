@@ -5,10 +5,13 @@
  */
 
 package minesweeper.app;
+import minesweeper.logic.*;
+import minesweeper.gui.*;
 
 /**
  *
  * @author fernandoobieta
+ * @version 0.1
  */
 public class main {
 
@@ -16,11 +19,7 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                minesweeper.gui.Minesweeper.createAndShowGUI();
-            }
-        });
+        
     }
     
     
