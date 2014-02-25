@@ -5,15 +5,16 @@ import java.util.Random;
 
 /**
  * @author fernandoobieta
- * @version 1.0
+ * @version 0.5
  */
 public class Board {
 
     // Data
     private Field[][] fields;
+
     private Random random;
-    private final int width;
-    private final int height;
+    public final int width;
+    public final int height;
 
     // Constructor
     public Board(int x, int y, double difficulty) {
@@ -134,5 +135,13 @@ public class Board {
         }
         // Falls alle Bomben markiert wurden, liefert true zurueck.
         return misidentified == 0;
+    }
+    
+    /**
+     * Gibt alle Felder des Spielbretts zurueck
+     * @return Field[][]
+     */
+    public Field[][] getFields() {
+        return fields;
     }
 }

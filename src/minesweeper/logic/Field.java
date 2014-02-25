@@ -1,5 +1,11 @@
 package minesweeper.logic;
 
+/**
+ * 
+ * @author fernando
+ * @version 0.2
+ */
+
 public class Field {
 	//Data
 	private final boolean isBomb;
