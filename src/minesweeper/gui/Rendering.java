@@ -5,10 +5,10 @@ import minesweeper.logic.*;
 /**
  * 
  * @author fernando
- * @version 0.2 - 25.02.2014
+ * @version 0.3 - 03.03.2014
  */
 
-public class Minesweeper {
+public class Rendering {
     //Data
     
     //Contructor
@@ -36,7 +36,7 @@ public class Minesweeper {
     private static void drawLine(Board board) {
         String widthLine = "   ";
         for(int i=0; i < board.width; i++) {
-            widthLine = widthLine + "___";
+            widthLine = widthLine + "____";
         }
         System.out.println(widthLine);
     }
@@ -53,12 +53,12 @@ public class Minesweeper {
                 String fieldDraw = "";
                 fieldDraw = fieldDraw + "|";
                 if (field.isFlagged()) {
-                    fieldDraw = fieldDraw + "P";
+                    fieldDraw = fieldDraw + " P ";
                 } else if (field.isRevealed()) {
                     if (field.isBomb()) {
-                        fieldDraw = fieldDraw + "X";
+                        fieldDraw = fieldDraw + " X ";
                     } else {
-                        fieldDraw = fieldDraw + field.getNumberOfNeighboringBombs();
+                        fieldDraw = fieldDraw + " " + field.getNumberOfNeighboringBombs() + " ";
                     }
                 } else {
                     fieldDraw = fieldDraw + " ";
@@ -78,6 +78,13 @@ public class Minesweeper {
     public static void drawBoard(Board board) {
         drawLogo();
         drawFields(board);
+    }
+    
+    /**
+     * leert die BlueJ Konsole
+     */
+    public static void clearConsole() {
+        System.out.print("\u000C");
     }
     
 }

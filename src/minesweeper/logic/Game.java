@@ -3,7 +3,7 @@ package minesweeper.logic;
 /**
  * 
  * @author fernando
- * @version 0.2
+ * @version 0.3 - 03.03.2014
  */
 
 public class Game {
@@ -52,17 +52,25 @@ public class Game {
 		this.board = board;
 	}
         
+        public boolean flag(int x, int y) {
+            return board.toggleFlag(x, y);
+        }
+        
         /**
          * 
          * @param x-Coordinate of the choosen field to dig
          * @param y-Coordinate of the choosen field to dig
-         * @return if the player has won the game
+         * @return ist der Spieler noch am Leben?
          */
         public boolean dig(int x, int y) {
             boolean exploded = board.dig(x, y);
             if (exploded) {
                 lives--;
             }
-            return board.checkVictoryCondition();
+            return checkLives();
+        }
+        
+        private boolean checkLives() {
+            return !(lives <= 0);
         }
 }

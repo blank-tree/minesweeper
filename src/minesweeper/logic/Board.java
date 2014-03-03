@@ -5,7 +5,7 @@ import java.util.Random;
 
 /**
  * @author fernandoobieta
- * @version 0.5
+ * @version 0.6 - 03.03.2014
  */
 public class Board {
 
@@ -113,13 +113,12 @@ public class Board {
     }
 
     /**
-     * Aendert den Markiert-Status des bestimmten Feldes
+     * Aendert den Markiert-Status des als Koordinate angegebenen Feldes
      * @param x-Koordinate
      * @param y-Koordinate
      * @return Neuer Status des geaenderten Feldes
      */
     public boolean toggleFlag(int x, int y) {
-        // Das Feld markieren
         boolean flagged = fields[x][y].isFlagged();
         return fields[x][y].setFlagged(!flagged);
     }
@@ -153,5 +152,21 @@ public class Board {
      */
     public Field[][] getFields() {
         return fields;
+    }
+    
+    /**
+     * Gibt die Breite des Spielfeldes zurueck.
+     * @return width
+     */
+    public int getWidth() {
+        return width;
+    }
+
+    /**
+     * Gibt die Hoehe des Spielfeldes zurueck
+     * @return height
+     */
+    public int getHeight() {
+        return height;
     }
 }
