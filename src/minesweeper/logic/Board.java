@@ -25,9 +25,15 @@ public class Board {
     }
 
     // Methods
+    /**
+     * Methode welche bloss vom Konstruktor verwendet wird um das Spielfeld
+     * mit Bomben zu fuellen
+     * @param width - Breite des Spielfeldes
+     * @param height - Hoehe des Spielfeldes
+     * @param difficulty - Schwierigkeitsstufe zwischen 0 und 1
+     * z. B. 0.4 = 40% Bomben, 0.345 = 34.5% Bomben
+     */
     private void initFields(int width, int height, double difficulty) {
-        // Methode welche bloss vom Konstruktor verwendet wird um das Spielfeld
-        // mit Bomben zu fuellen
         fields = new Field[width][height];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
@@ -69,7 +75,7 @@ public class Board {
      * Wird von der Methode "Dig" ausgefuehrt um die Anzahl Bomben aus
      * der uebergebenen ArrayList zusammenzuzaehlen.
      * @param neigbors
-     * @return
+     * @return Anzahl Bomben in der uebergebenen ArrayList
      */
     private int getBombsIn(ArrayList<Field> neigbors) {
         int bombs = 0;
@@ -88,7 +94,8 @@ public class Board {
      * (z.B. ob wir in einer Ecke sind oder an einem Rand).
      * @param x
      * @param y
-     * @return 
+     * @return ArrayList mit allen umliegenden Felder der Koordinate des
+     * Feldes
      */
     private ArrayList<Field> getNeighborsOf(int x, int y) {
         ArrayList<Field> foundFields = new ArrayList<Field>();
@@ -106,10 +113,10 @@ public class Board {
     }
 
     /**
-     * 
-     * @param x
-     * @param y
-     * @return 
+     * Aendert den Markiert-Status des bestimmten Feldes
+     * @param x-Koordinate
+     * @param y-Koordinate
+     * @return Neuer Status des geaenderten Feldes
      */
     public boolean toggleFlag(int x, int y) {
         // Das Feld markieren
@@ -117,8 +124,11 @@ public class Board {
         return fields[x][y].setFlagged(!flagged);
     }
 
+    /**
+     * Ueberprueft ob das Spiel gewonnen ist
+     * @return Boolean ob das Spiel gewonnen ist
+     */
     public boolean checkVictoryCondition() {
-        // Ueberprueft ob das Spiel gewonnen ist
         int misidentified = 0;
         for (Field[] row : fields) {
             for (Field field : row) {

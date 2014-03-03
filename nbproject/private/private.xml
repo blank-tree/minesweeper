@@ -5,6 +5,12 @@
         <group name="Java">
             <file>file:/Users/fernando/NetBeansProjects/minesweeper/src/minesweeper/gui/Minesweeper.java</file>
         </group>
-        <group name="Softwareentwicklung mit Java"/>
+        <group name="Softwareentwicklung mit Java">
+            <file>file:/Users/fernando/NetBeansProjects/minesweeper/src/minesweeper/logic/Field.java</file>
+            <file>file:/Users/fernando/NetBeansProjects/minesweeper/src/minesweeper/app/main.java</file>
+            <file>file:/Users/fernando/NetBeansProjects/minesweeper/src/minesweeper/logic/Game.java</file>
+            <file>file:/Users/fernando/NetBeansProjects/minesweeper/src/minesweeper/gui/Minesweeper.java</file>
+            <file>file:/Users/fernando/NetBeansProjects/minesweeper/src/minesweeper/logic/Board.java</file>
+        </group>
     </open-files>
 </project-private>

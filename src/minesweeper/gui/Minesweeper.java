@@ -30,20 +30,11 @@ public class Minesweeper {
     }
     
     /**
-     * Zeichnet das gesamte Spielfeld inkl. Logo
-     * @param board 
-     */
-    public static void drawBoard(Board board) {
-        drawLogo();
-        drawFields(board);
-    }
-    
-    /**
      * Zeichnet die horizontale Trennlinie
      * @param board 
      */
     private static void drawLine(Board board) {
-        String widthLine = "";
+        String widthLine = "   ";
         for(int i=0; i < board.width; i++) {
             widthLine = widthLine + "___";
         }
@@ -57,7 +48,7 @@ public class Minesweeper {
     private static void drawFields(Board board) {
         drawLine(board);
         for (Field[] row : board.getFields()) {
-            String rowDraw = "";
+            String rowDraw = "   |";
             for (Field field : row) {
                 String fieldDraw = "";
                 fieldDraw = fieldDraw + "|";
@@ -78,6 +69,15 @@ public class Minesweeper {
             System.out.println(rowDraw);
             drawLine(board);
         }
+    }
+    
+    /**
+     * Zeichnet das gesamte Spielfeld inkl. Logo
+     * @param board 
+     */
+    public static void drawBoard(Board board) {
+        drawLogo();
+        drawFields(board);
     }
     
 }
