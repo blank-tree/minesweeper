@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * @author fernandoobieta
+ * @author blanktree.ch - fernando obieta
  * @version 0.6 - 03.03.2014
  */
 public class Board {

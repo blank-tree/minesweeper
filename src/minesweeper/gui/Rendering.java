@@ -4,7 +4,7 @@ import minesweeper.logic.*;
 
 /**
  * 
- * @author fernando
+ * @author blanktree.ch - fernando obieta
  * @version 0.3 - 03.03.2014
  */
 
@@ -26,7 +26,7 @@ public class Rendering {
         System.out.println(" | |  | | | | | |  __/\\__ \\\\ V  V /  __/  __/ |_) |  __/ |   ");
         System.out.println(" |_|  |_|_|_| |_|\\___||___/ \\_/\\_/ \\___|\\___| .__/ \\___|_|   ");
         System.out.println("                                            | |              ");
-        System.out.println("                                            |_|");
+        System.out.println("          by blanktree.ch                   |_|");
     }
     
     /**
@@ -34,7 +34,7 @@ public class Rendering {
      * @param board 
      */
     private static void drawLine(Board board) {
-        String widthLine = "   ";
+        String widthLine = "   _";
         for(int i=0; i < board.width; i++) {
             widthLine = widthLine + "____";
         }
@@ -50,8 +50,7 @@ public class Rendering {
         for (Field[] row : board.getFields()) {
             String rowDraw = "   |";
             for (Field field : row) {
-                String fieldDraw = "";
-                fieldDraw = fieldDraw + "|";
+                String fieldDraw = " ";
                 if (field.isFlagged()) {
                     fieldDraw = fieldDraw + " P ";
                 } else if (field.isRevealed()) {
@@ -63,12 +62,15 @@ public class Rendering {
                 } else {
                     fieldDraw = fieldDraw + " ";
                 }
-                fieldDraw = fieldDraw + "|";
+                fieldDraw = fieldDraw + " |";
                 rowDraw = rowDraw + fieldDraw;
             }
             System.out.println(rowDraw);
             drawLine(board);
         }
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
     }
     
     /**

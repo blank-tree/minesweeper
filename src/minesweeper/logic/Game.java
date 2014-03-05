@@ -2,7 +2,7 @@ package minesweeper.logic;
 
 /**
  * 
- * @author fernando
+ * @author blanktree.ch - fernando obieta
  * @version 0.3 - 03.03.2014
  */
 
