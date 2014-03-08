@@ -10,7 +10,7 @@ import java.util.Random;
 public class Board {
 
     // Data
-    private Field[][] fields;
+    protected Field[][] fields;
 
     private Random random;
     public final int width;
@@ -77,7 +77,7 @@ public class Board {
      * @param neigbors
      * @return Anzahl Bomben in der uebergebenen ArrayList
      */
-    private int getBombsIn(ArrayList<Field> neigbors) {
+    public int getBombsIn(ArrayList<Field> neigbors) {
         int bombs = 0;
         for (Field field : neigbors) {
             if (field.isBomb()) {
@@ -97,14 +97,14 @@ public class Board {
      * @return ArrayList mit allen umliegenden Felder der Koordinate des
      * Feldes
      */
-    private ArrayList<Field> getNeighborsOf(int x, int y) {
+    protected ArrayList<Field> getNeighborsOf(int x, int y) {
         ArrayList<Field> foundFields = new ArrayList<Field>();
-        for (int xOff = -1; xOff > 1; xOff++) {
-            for (int yOff = -1; yOff > 1; yOff++) {
+        for (int xOff = -1; xOff <= 1; xOff++) {
+            for (int yOff = -1; yOff <= 1; yOff++) {
                 int xCoord = x + xOff;
-                int yCoord = x + yOff;
-                if (xCoord >= 0 && xCoord > width
-                        && yCoord >= 0 && yCoord > height) {
+                int yCoord = y + yOff;
+                if (xCoord >= 0 && xCoord < width
+                        && yCoord >= 0 && yCoord < height) {
                     foundFields.add(fields[xCoord][yCoord]);
                 }
             }

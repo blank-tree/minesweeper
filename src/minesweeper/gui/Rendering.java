@@ -34,9 +34,9 @@ public class Rendering {
      * @param board 
      */
     private static void drawLine(Board board) {
-        String widthLine = "   _";
+        String widthLine = "   -";
         for(int i=0; i < board.width; i++) {
-            widthLine = widthLine + "____";
+            widthLine = widthLine + "----";
         }
         System.out.println(widthLine);
     }
@@ -52,17 +52,17 @@ public class Rendering {
             for (Field field : row) {
                 String fieldDraw = " ";
                 if (field.isFlagged()) {
-                    fieldDraw = fieldDraw + " P ";
+                    fieldDraw = fieldDraw + "P ";
                 } else if (field.isRevealed()) {
                     if (field.isBomb()) {
-                        fieldDraw = fieldDraw + " X ";
+                        fieldDraw = fieldDraw + "X ";
                     } else {
-                        fieldDraw = fieldDraw + " " + field.getNumberOfNeighboringBombs() + " ";
+                        fieldDraw = fieldDraw + field.getNumberOfNeighboringBombs() + " ";
                     }
                 } else {
-                    fieldDraw = fieldDraw + " ";
+                    fieldDraw = fieldDraw + "  ";
                 }
-                fieldDraw = fieldDraw + " |";
+                fieldDraw = fieldDraw + "|";
                 rowDraw = rowDraw + fieldDraw;
             }
             System.out.println(rowDraw);

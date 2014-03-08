@@ -16,6 +16,17 @@ import minesweeper.logic.Game;
  */
 public class GameStatus {
 
+    public static int getInt(Scanner scanner, String message) {
+        System.out.println(message);
+        return scanner.nextInt();
+    }
+    
+    public static double getDouble(Scanner scanner, String message) {
+        System.out.println(message);
+        return scanner.nextDouble();
+    }
+    
+    
     public static Game start(Scanner scanner) {
         System.out.println("Please decide the width of your board (5-10): ");
         int width = scanner.nextInt();
@@ -89,11 +100,11 @@ public class GameStatus {
             Rendering.clearConsole();
             Rendering.drawBoard(game.getBoard());
         }
-        if (gameCondition == 'v') {
-            Rendering.drawVictory();
-        } else {
-            Rendering.drawLost();
-        }
+       // if (gameCondition == 'v') {
+//            Rendering.drawVictory();
+  //      } else {
+    //        Rendering.drawLost();
+      //  }
         return gameCondition == 'v';
     }
 }
