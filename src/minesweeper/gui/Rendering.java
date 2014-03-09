@@ -5,15 +5,10 @@ import minesweeper.logic.*;
 /**
  * 
  * @author blanktree.ch - fernando obieta
- * @version 0.3 - 03.03.2014
+ * @version 0.4 - 09.03.2012
  */
 
 public class Rendering {
-    //Data
-    
-    //Contructor
-    
-    //Methods
     
     /**
      * Zeichnet das Minesweeper-Logo
@@ -30,25 +25,65 @@ public class Rendering {
     }
     
     /**
-     * Zeichnet die horizontale Trennlinie
+     * zeichnet eine gerade Linie zur Gliederung
+     */
+    public static void drawHorizontalLine() {
+        System.out.println("______________________________________________________________________");
+    }
+    
+    /**
+     * Zeichnet den aktuellen Spielerstatus
+     * @param game 
+     */
+    public static void drawStatus(Game game) {
+        drawHorizontalLine();
+        System.out.println("Lives left: " + game.getLives());
+        drawHorizontalLine();
+    }
+    
+    private static void drawXCoordinates(Board board) {
+        String xCoordinates = "       ";
+        for(int i=0; i < board.getWidth(); i++) {
+            if(i<10) {
+                xCoordinates = xCoordinates + " " + i + "  ";
+            } else {
+                xCoordinates = xCoordinates + " " + i + " ";
+            }
+            
+        }
+        xCoordinates = xCoordinates + " x";
+        System.out.println(xCoordinates);
+    }
+    
+    /**
+     * Zeichnet die horizontale Trennlinie zwischen den Feldern
      * @param board 
      */
-    private static void drawLine(Board board) {
-        String widthLine = "   -";
-        for(int i=0; i < board.width; i++) {
+    private static void drawBoardLine(Board board) {
+        String widthLine = "      -";
+        for(int i=0; i < board.getWidth(); i++) {
             widthLine = widthLine + "----";
         }
         System.out.println(widthLine);
     }
     
     /**
-     * Zeichnet die Felder mit ihrem Inhalt getrennt durch Trennlinien
+     * Zeichnet die Felder mit ihrem Inhalt getrennt durch Trennlinien inkl.
+     * Nummern des Koordinatensystems
      * @param board 
      */
     private static void drawFields(Board board) {
-        drawLine(board);
+        drawXCoordinates(board);
+        drawBoardLine(board);
+        int rowNumber = 0;
         for (Field[] row : board.getFields()) {
-            String rowDraw = "   |";
+            String rowDraw = "";
+            if (rowNumber < 10) {
+                rowDraw = "  " + rowNumber + "   |";
+            } else {
+                rowDraw = " " + rowNumber + "   |";
+            }
+            rowNumber++;
             for (Field field : row) {
                 String fieldDraw = " ";
                 if (field.isFlagged()) {
@@ -59,6 +94,8 @@ public class Rendering {
                     } else {
                         fieldDraw = fieldDraw + field.getNumberOfNeighboringBombs() + " ";
                     }
+//                } else if (field.isBomb()){
+//                    fieldDraw = fieldDraw + ". ";
                 } else {
                     fieldDraw = fieldDraw + "  ";
                 }
@@ -66,20 +103,20 @@ public class Rendering {
                 rowDraw = rowDraw + fieldDraw;
             }
             System.out.println(rowDraw);
-            drawLine(board);
+            drawBoardLine(board);
         }
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
+        System.out.println("  y");
+        drawHorizontalLine();
     }
     
     /**
      * Zeichnet das gesamte Spielfeld inkl. Logo
-     * @param board 
+     * @param game 
      */
-    public static void drawBoard(Board board) {
+    public static void drawRendering(Game game) {
         drawLogo();
-        drawFields(board);
+        drawStatus(game);
+        drawFields(game.getBoard());
     }
     
     /**
@@ -87,6 +124,24 @@ public class Rendering {
      */
     public static void clearConsole() {
         System.out.print("\u000C");
+    }
+    
+    public static void drawVictory() {
+        System.out.println(" __      _______ _____ _______ ____  _______     __");
+        System.out.println(" \\ \\    / /_   _/ ____|__   __/ __ \\|  __ \\ \\   / /");
+        System.out.println("  \\ \\  / /  | || |       | | | |  | | |__) \\ \\_/ / ");
+        System.out.println("   \\ \\/ /   | || |       | | | |  | |  _  / \\   /  ");
+        System.out.println("    \\  /   _| || |____   | | | |__| | | \\ \\  | |   ");
+        System.out.println("     \\/   |_____\\_____|  |_|  \\____/|_|  \\_\\ |_|   ");
+    }
+    
+    public static void drawGameOver() {
+            System.out.println("   _____          __  __ ______    ______      ________ _____  ");
+            System.out.println("  / ____|   /\\   |  \\/  |  ____|  / __ \\ \\    / /  ____|  __ \\ ");
+            System.out.println(" | |  __   /  \\  | \\  / | |__    | |  | \\ \\  / /| |__  | |__) |");
+            System.out.println(" | | |_ | / /\\ \\ | |\\/| |  __|   | |  | |\\ \\/ / |  __| |  _  / ");
+            System.out.println(" | |__| |/ ____ \\| |  | | |____  | |__| | \\  /  | |____| | \\ \\ ");
+            System.out.println("  \\_____/_/    \\_\\_|  |_|______|  \\____/   \\/   |______|_|  \\_\\");
     }
     
 }

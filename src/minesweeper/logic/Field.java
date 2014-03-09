@@ -3,7 +3,7 @@ package minesweeper.logic;
 /**
  * 
  * @author blanktree.ch - fernando obieta
- * @version 0.2
+ * @version 0.3 - 09.03.2014
  */
 
 public class Field {

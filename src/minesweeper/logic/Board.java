@@ -5,7 +5,7 @@ import java.util.Random;
 
 /**
  * @author blanktree.ch - fernando obieta
- * @version 0.6 - 03.03.2014
+ * @version 0.7 - 09.03.2012
  */
 public class Board {
 
@@ -13,8 +13,8 @@ public class Board {
     protected Field[][] fields;
 
     private Random random;
-    public final int width;
-    public final int height;
+    private final int width;
+    private final int height;
 
     // Constructor
     public Board(int x, int y, double difficulty) {
@@ -77,7 +77,7 @@ public class Board {
      * @param neigbors
      * @return Anzahl Bomben in der uebergebenen ArrayList
      */
-    public int getBombsIn(ArrayList<Field> neigbors) {
+    private int getBombsIn(ArrayList<Field> neigbors) {
         int bombs = 0;
         for (Field field : neigbors) {
             if (field.isBomb()) {
@@ -97,7 +97,7 @@ public class Board {
      * @return ArrayList mit allen umliegenden Felder der Koordinate des
      * Feldes
      */
-    protected ArrayList<Field> getNeighborsOf(int x, int y) {
+    private ArrayList<Field> getNeighborsOf(int x, int y) {
         ArrayList<Field> foundFields = new ArrayList<Field>();
         for (int xOff = -1; xOff <= 1; xOff++) {
             for (int yOff = -1; yOff <= 1; yOff++) {
@@ -142,7 +142,8 @@ public class Board {
                 }
             }
         }
-        // Falls alle Bomben markiert wurden, liefert true zurueck.
+        // Falls alle Felder mit Bomben markiert wurden, (ohne welche ohne 
+        // Bomben markiert zu haben), liefert true zurueck.
         return misidentified == 0;
     }
     

@@ -3,7 +3,7 @@ package minesweeper.logic;
 /**
  * 
  * @author blanktree.ch - fernando obieta
- * @version 0.3 - 03.03.2014
+ * @version 0.4 - 09.03.2014
  */
 
 public class Game {
@@ -52,6 +52,13 @@ public class Game {
 		this.board = board;
 	}
         
+        /**
+         * Das gewaehlte Feld wird mit einer Flagge markiert, oder wenn es
+         * bereits markiert ist, wird die Flagge entfernt.
+         * @param x-Coordinate
+         * @param y-Coordinate
+         * @return new flagged status
+         */
         public boolean flag(int x, int y) {
             return board.toggleFlag(x, y);
         }
