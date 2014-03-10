@@ -1,4 +1,5 @@
 package minesweeper.app;
+
 import minesweeper.logic.*;
 import minesweeper.gui.*;
 import java.util.Scanner;
@@ -7,14 +8,13 @@ import java.io.InputStreamReader;
 /**
  *
  * @author blanktree.ch - fernando obieta
- * @version 0.5 - 09.03.2012
+ * @version 1.0 - GM - 10.03.2014
  */
 public class main {
 
     public static void main(String[] args) {
-        Rendering.drawLogo();
-        Scanner scanner = new Scanner(new InputStreamReader(System.in));
         Rendering.clearConsole();
+        Scanner scanner = new Scanner(new InputStreamReader(System.in));
         Game game = GameStatus.start(scanner);
         Rendering.clearConsole();
         GameStatus.play(scanner, game);

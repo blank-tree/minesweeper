@@ -5,7 +5,7 @@ import java.util.Random;
 
 /**
  * @author blanktree.ch - fernando obieta
- * @version 0.7 - 09.03.2012
+ * @version 1.0 - GM - 10.03.2014
  */
 public class Board {
 

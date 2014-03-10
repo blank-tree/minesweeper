@@ -5,7 +5,7 @@ import minesweeper.logic.*;
 /**
  * 
  * @author blanktree.ch - fernando obieta
- * @version 0.5 - 10.03.2012
+ * @version 1.0 - GM - 10.03.2014
  */
 
 public class Rendering {
@@ -47,7 +47,7 @@ public class Rendering {
      */
     private static void drawXCoordinates(Board board) {
         String xCoordinates = "       ";
-        for(int i=0; i < board.getWidth(); i++) {
+        for(int i=1; i <= board.getWidth(); i++) {
             if(i<10) {
                 xCoordinates = xCoordinates + " " + i + "  ";
             } else {
@@ -79,7 +79,7 @@ public class Rendering {
     private static void drawFields(Board board) {
         drawXCoordinates(board);
         drawBoardLine(board);
-        int rowNumber = 0;
+        int rowNumber = 1;
         for (Field[] row : board.getFields()) {
             String rowDraw = "";
             if (rowNumber < 10) {
@@ -98,6 +98,7 @@ public class Rendering {
                     } else {
                         fieldDraw = fieldDraw + field.getNumberOfNeighboringBombs() + " ";
                     }
+//                For testing purposes     
 //                } else if (field.isBomb()){
 //                    fieldDraw = fieldDraw + ". ";
                 } else {
