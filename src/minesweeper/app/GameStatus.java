@@ -19,7 +19,7 @@ public class GameStatus {
      * @param max-Wert
      * @return 
      */
-    public static int getInt(Scanner scanner, String message, int min, int max) {
+    private static int getInt(Scanner scanner, String message, int min, int max) {
         System.out.println(message);
         int output = scanner.nextInt();
         while (output < min || output > max) {
@@ -38,7 +38,7 @@ public class GameStatus {
      * @param max-Wert
      * @return 
      */
-    public static double getDouble(Scanner scanner, String message, int min, int max) {
+    private static double getDouble(Scanner scanner, String message, int min, int max) {
         System.out.println(message);
         double output = scanner.nextDouble();
         while (output < min || output > max) {
@@ -84,8 +84,8 @@ public class GameStatus {
             String command = scanner.nextLine();
             switch (command) {
                 case "d": { //dig
-                    int x = getInt(scanner, "Where do want to dig? Please type in the x-coordinate", 0, width);
-                    int y = getInt(scanner, "Where do want to dig? Please type in the y-coordinate", 0, height);
+                    int x = getInt(scanner, "Where do you want to dig? Please type in the x-coordinate", 0, width);
+                    int y = getInt(scanner, "Where do you want to dig? Please type in the y-coordinate", 0, height);
                     if (!(game.dig(x, y))) {
                         gameCondition = 'l'; // 'l' for 'lost'
                     }
@@ -95,8 +95,8 @@ public class GameStatus {
                     break;
                 }
                 case "f": { //flag
-                    int x = getInt(scanner, "Where do want to flag? Please type in the x-coordinate", 0, width);
-                    int y = getInt(scanner, "Where do want to flag? Please type in the y-coordinate", 0, height);
+                    int x = getInt(scanner, "Where do you want to flag? Please type in the x-coordinate", 0, width);
+                    int y = getInt(scanner, "Where do you want to flag? Please type in the y-coordinate", 0, height);
                     if (game.flag(x, y)) {
                         System.out.println("The field has been flagged");
                     } else {
@@ -106,6 +106,19 @@ public class GameStatus {
                         gameCondition = 'v'; // 'v' for 'victory'
                     }
                     break;
+                }
+                case "c": { //cheat! HAHA!
+                    for (Field[] row : game.getBoard().getFields()) {
+                        for (Field field : row) {
+                            if (field.isBomb() && !field.isFlagged()) {
+                                field.setFlagged(true);
+                        }
+                            if (!field.isBomb() && field.isFlagged()) {
+                                field.setFlagged(false);
+                        }
+                    }
+                    break;
+                }
                 }
                 default:
                     System.out.println("Wrong command!");

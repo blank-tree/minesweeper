@@ -3,7 +3,7 @@ package minesweeper.logic;
 /**
  * 
  * @author blanktree.ch - fernando obieta
- * @version 0.4 - 09.03.2014
+ * @version 0.5 - 10.03.2014
  */
 
 public class Game {

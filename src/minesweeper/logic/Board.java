@@ -10,8 +10,7 @@ import java.util.Random;
 public class Board {
 
     // Data
-    protected Field[][] fields;
-
+    private Field[][] fields;
     private Random random;
     private final int width;
     private final int height;
@@ -68,7 +67,12 @@ public class Board {
         ArrayList<Field> neighborsOf = getNeighborsOf(x, y);
         int neigboringBombs = getBombsIn(neighborsOf);
         fields[x][y].setNumberOfNeighboringBombs(neigboringBombs);
-        return fields[x][y].isBomb();
+        boolean explosion = false;
+        if (fields[x][y].isBomb() && fields[x][y].isExplosive()) {
+            explosion = true;
+            fields[x][y].setExplosive(false);
+        }
+        return explosion;
     }
 
     /**

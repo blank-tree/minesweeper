@@ -5,7 +5,7 @@ import minesweeper.logic.*;
 /**
  * 
  * @author blanktree.ch - fernando obieta
- * @version 0.4 - 09.03.2012
+ * @version 0.5 - 10.03.2012
  */
 
 public class Rendering {
@@ -41,6 +41,10 @@ public class Rendering {
         drawHorizontalLine();
     }
     
+    /**
+     * Zeichnet die X-Koordinaten an das obere Ende des Spielfeldes
+     * @param board 
+     */
     private static void drawXCoordinates(Board board) {
         String xCoordinates = "       ";
         for(int i=0; i < board.getWidth(); i++) {

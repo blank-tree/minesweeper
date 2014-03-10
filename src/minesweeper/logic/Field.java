@@ -3,7 +3,7 @@ package minesweeper.logic;
 /**
  * 
  * @author blanktree.ch - fernando obieta
- * @version 0.3 - 09.03.2014
+ * @version 0.4 - 10.03.2014
  */
 
 public class Field {
@@ -12,12 +12,19 @@ public class Field {
 	private boolean isRevealed;
 	private boolean isFlagged;
 	private int numberOfNeighboringBombs;
-	
+        private boolean explosive;
+
+   
 	//Constructor
 	public Field(boolean isBomb) {
 		this.isBomb = isBomb;
 		this.isRevealed = false;
 		this.isFlagged = false;
+                if(isBomb) {
+                    explosive = true;
+                } else {
+                    explosive = false;
+                }
 	}
 
 	//Methods
@@ -77,5 +84,22 @@ public class Field {
          */
 	public void setNumberOfNeighboringBombs(int numberOfNeighboringBombs) {
 		this.numberOfNeighboringBombs = numberOfNeighboringBombs;
-	}
+	} 
+        
+        /**
+         * Gibt true zurueck, wenn die Bombe bereits explodiert ist.
+         * @return 
+         */
+        public boolean isExplosive() {
+        return explosive;
+        }
+
+        /**
+         * Aendert ob die Bombe bereits explodiert ist.
+         * @param isExploded 
+         */
+        public void setExplosive(boolean isExploded) {
+            this.explosive = isExploded;
+        }
+	
 }
