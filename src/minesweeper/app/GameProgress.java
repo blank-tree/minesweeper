@@ -108,7 +108,8 @@ public class GameProgress {
                     break;
                 }
                 case "c": { //cheat! HAHA!
-                    for (Field[] row : board.getFields()) {
+                    Field [][] fields = board.getFields();
+                    for (Field[] row : fields) {
                         for (Field field : row) {
                             if (field.isBomb() && !field.isFlagged()) {
                                 field.setFlagged(true);
@@ -117,8 +118,11 @@ public class GameProgress {
                                 field.setFlagged(false);
                         }
                     }
-                    break;
                 }
+                if (board.checkVictoryCondition()) {
+                    gameCondition = 'v'; // 'v' for 'victory'
+                }
+                break;
                 }
                 default:
                     System.out.println("Wrong command!");
