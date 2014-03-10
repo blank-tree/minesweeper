@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
  * @author blanktree.ch - fernando obieta
  * @version 1.0 - GM - 10.03.2014
  */
-public class main {
+public class Main {
 
     public static void main(String[] args) {
         Rendering.clearConsole();

@@ -21,6 +21,7 @@ public class Field {
 		this.isRevealed = false;
 		this.isFlagged = false;
                 explosive = isBomb;
+                numberOfNeighboringBombs = 0;
 	}
 
 	//Methods

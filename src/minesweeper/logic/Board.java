@@ -81,9 +81,9 @@ public class Board {
      * @param neigbors
      * @return Anzahl Bomben in der uebergebenen ArrayList
      */
-    private int getBombsIn(ArrayList<Field> neigbors) {
+    private int getBombsIn(ArrayList<Field> neighbors) {
         int bombs = 0;
-        for (Field field : neigbors) {
+        for (Field field : neighbors) {
             if (field.isBomb()) {
                 bombs++;
             }

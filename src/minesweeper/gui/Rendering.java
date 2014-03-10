@@ -91,7 +91,7 @@ public class Rendering {
             for (Field field : row) {
                 String fieldDraw = " ";
                 if (field.isFlagged()) {
-                    fieldDraw = fieldDraw + "P ";
+                    fieldDraw = fieldDraw + "⚑ ";
                 } else if (field.isRevealed()) {
                     if (field.isBomb()) {
                         fieldDraw = fieldDraw + "X ";
