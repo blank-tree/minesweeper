@@ -20,11 +20,7 @@ public class Field {
 		this.isBomb = isBomb;
 		this.isRevealed = false;
 		this.isFlagged = false;
-                if(isBomb) {
-                    explosive = true;
-                } else {
-                    explosive = false;
-                }
+                explosive = isBomb;
 	}
 
 	//Methods
