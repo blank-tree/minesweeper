@@ -15,8 +15,8 @@ public class main {
     public static void main(String[] args) {
         Rendering.clearConsole();
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
-        Game game = GameStatus.start(scanner);
+        Game game = GameProgress.start(scanner);
         Rendering.clearConsole();
-        GameStatus.play(scanner, game);
+        GameProgress.play(scanner, game);
     }
 }

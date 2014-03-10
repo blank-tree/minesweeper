@@ -9,7 +9,7 @@ import minesweeper.logic.*;
  * @author blanktree.ch - fernando obieta
  * @version 1.0 - GM - 10.03.2014
  */
-public class GameStatus {
+public class GameProgress {
 
     /**
      * Benutzereingabe eines int mit Nachricht zuvor. Fehlerkontrolle mit minimum und maximum Werten
@@ -67,7 +67,7 @@ public class GameStatus {
     /**
      * Methode welche das komplete Spiel ausfuehrt.
      * Uebergeben werden der Scanner und das "Game"-Objekt. Hoehe und Breite
-     * werden -1 herausgezogen und dann bieten sich dem Benutzer die Befehle
+     * werden herausgezogen und dann bieten sich dem Benutzer die Befehle
      * dig und flag an. Extern werden Fehlerabfragen gemacht, das Spielfeld
      * gezeichnet und die Spielelogik ausgefuehrt. Nach jedem Zug wird
      * ueberprueft, ob das Spiel verloren oder gewonnen ist.
